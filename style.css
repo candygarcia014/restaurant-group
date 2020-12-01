@@ -5,7 +5,7 @@ body {
     font-style: italic;
 }
 
-.jumbotron {
+.jumbotron, .tables {
     background-color: rgba(222, 220, 81, 0.855);
 }
 

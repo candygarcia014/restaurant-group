@@ -1,25 +1,7 @@
 // Dependencies
 // =============================================================
-let tables = []; 
-let waitList = [
-    {
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"   
-    }
-];
-let reserves = [
-    {
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    }
-]
 var express = require("express");
 var path = require("path");
-
 
 // Sets up the Express App
 // =============================================================
@@ -30,19 +12,19 @@ var PORT = process.env.port || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
+let tables, reserves, waitList = [];
 
 // Routes
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
 
-app.get("/table", function(req, res) {
+app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
   });
 
 app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reservation.html"));
+    res.sendFile(path.join(__dirname, "reserve.html"));
   });
 
 app.get("/api/tables", function(req, res) {
@@ -67,19 +49,20 @@ app.get("/", function(req, res) {
     return res.json(false);
   });
 
-app.post("/api/new", function(req, res) {
-    let newRes = req.body;
+app.post("/api/characters", function(req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var newCharacter = req.body;
   
-    // console.log(typeof newRes);      
+    // Using a RegEx Pattern to remove spaces from newCharacter
+    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
   
-    reserves.push(newRes);
-
-    // console.log(reserves);
-    if(reserves.length <= 11){
-        waitList.push(newRes);
-    };
-    
-    res.json((reserves.length <= 11) ? true : false);
+    console.log(newCharacter);
+  
+    characters.push(newCharacter);
+  
+    res.json(newCharacter);
   });
 
 app.listen(PORT, function() {

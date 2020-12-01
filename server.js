@@ -1,5 +1,72 @@
 // Dependencies
 // =============================================================
+<<<<<<< HEAD
+=======
+let tables = []; 
+let reserves = [
+    {
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    }
+]
+>>>>>>> serverTest
 var express = require("express");
 var path = require("path");
 
@@ -28,27 +95,16 @@ app.get("/reserve", function(req, res) {
   });
 
 app.get("/api/tables", function(req, res) {
-    return res.json(reserves);
+    return res.json(reserves.filter((x, i) => i <= 9
+    ));
   });
 
 app.get("/api/waitlist", function(req, res) {
-    return res.json(waitList);
+    return res.json(reserves.filter((x,i) => i > 9));
   });
 
-app.get("/", function(req, res) {
-    var chosen = req.params.character;
-  
-    console.log(chosen);
-  
-    for (var i = 0; i < characters.length; i++) {
-      if (chosen === characters[i].routeName) {
-        return res.json(characters[i]);
-      }
-    }
-  
-    return res.json(false);
-  });
 
+<<<<<<< HEAD
 app.post("/api/characters", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
@@ -59,10 +115,20 @@ app.post("/api/characters", function(req, res) {
     newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
   
     console.log(newCharacter);
+=======
+app.post("/api/new", function(req, res) {
+    let newRes = req.body;
+>>>>>>> serverTest
   
     characters.push(newCharacter);
   
+<<<<<<< HEAD
     res.json(newCharacter);
+=======
+    reserves.push(newRes);
+    
+    res.json((reserves.length <= 10) ? true : false);
+>>>>>>> serverTest
   });
 
 app.listen(PORT, function() {

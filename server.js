@@ -1,16 +1,63 @@
 // Dependencies
 // =============================================================
 let tables = []; 
-let waitList = [
+let reserves = [
     {
         customerEmail: "1",
         customerID: "1",
         customerName: "1",
-        phoneNumber: "1"   
-    }
-];
-let reserves = [
-    {
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    },{
         customerEmail: "1",
         customerID: "1",
         customerName: "1",
@@ -46,26 +93,14 @@ app.get("/reserve", function(req, res) {
   });
 
 app.get("/api/tables", function(req, res) {
-    return res.json(reserves);
+    return res.json(reserves.filter((x, i) => i <= 9
+    ));
   });
 
 app.get("/api/waitlist", function(req, res) {
-    return res.json(waitList);
+    return res.json(reserves.filter((x,i) => i > 9));
   });
 
-app.get("/", function(req, res) {
-    var chosen = req.params.character;
-  
-    console.log(chosen);
-  
-    for (var i = 0; i < characters.length; i++) {
-      if (chosen === characters[i].routeName) {
-        return res.json(characters[i]);
-      }
-    }
-  
-    return res.json(false);
-  });
 
 app.post("/api/new", function(req, res) {
     let newRes = req.body;
@@ -73,11 +108,6 @@ app.post("/api/new", function(req, res) {
     // console.log(typeof newRes);      
   
     reserves.push(newRes);
-
-    // console.log(reserves);
-    if(reserves.length <= 11){
-        waitList.push(newRes);
-    };
     
     res.json((reserves.length <= 11) ? true : false);
   });

@@ -109,7 +109,7 @@ app.post("/api/new", function(req, res) {
   
     reserves.push(newRes);
     
-    res.json((reserves.length <= 11) ? true : false);
+    res.json((reserves.length <= 10) ? true : false);
   });
 
 app.listen(PORT, function() {

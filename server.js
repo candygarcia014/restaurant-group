@@ -1,72 +1,5 @@
 // Dependencies
 // =============================================================
-<<<<<<< HEAD
-=======
-let tables = []; 
-let reserves = [
-    {
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    },{
-        customerEmail: "1",
-        customerID: "1",
-        customerName: "1",
-        phoneNumber: "1"
-    }
-]
->>>>>>> serverTest
 var express = require("express");
 var path = require("path");
 
@@ -79,7 +12,13 @@ var PORT = process.env.port || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-let tables, reserves, waitList = [];
+let reserves= [
+    {
+        customerEmail: "1",
+        customerID: "1",
+        customerName: "1",
+        phoneNumber: "1"
+    }];
 
 // Routes
 app.get("/", function(req, res) {
@@ -104,31 +43,14 @@ app.get("/api/waitlist", function(req, res) {
   });
 
 
-<<<<<<< HEAD
-app.post("/api/characters", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body parsing middleware
-    var newCharacter = req.body;
-  
-    // Using a RegEx Pattern to remove spaces from newCharacter
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
-  
-    console.log(newCharacter);
-=======
 app.post("/api/new", function(req, res) {
     let newRes = req.body;
->>>>>>> serverTest
   
     characters.push(newCharacter);
   
-<<<<<<< HEAD
-    res.json(newCharacter);
-=======
     reserves.push(newRes);
     
     res.json((reserves.length <= 10) ? true : false);
->>>>>>> serverTest
   });
 
 app.listen(PORT, function() {

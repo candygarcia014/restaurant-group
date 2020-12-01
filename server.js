@@ -26,12 +26,12 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
 
-app.get("/tables", function(req, res) {
+app.get("/table", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
   });
 
 app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    res.sendFile(path.join(__dirname, "reservation.html"));
   });
 
 app.get("/api/tables", function(req, res) {

@@ -35,19 +35,6 @@ app.get("/api/waitlist", function(req, res) {
     return res.json(waitList);
   });
 
-app.get("/", function(req, res) {
-    var chosen = req.params.character;
-  
-    console.log(chosen);
-  
-    for (var i = 0; i < characters.length; i++) {
-      if (chosen === characters[i].routeName) {
-        return res.json(characters[i]);
-      }
-    }
-  
-    return res.json(false);
-  });
 
 app.post("/api/characters", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user

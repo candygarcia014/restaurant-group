@@ -24,7 +24,7 @@ app.get("/tables", function(req, res) {
   });
 
 app.get("/reserve", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    res.sendFile(path.join(__dirname, "reservation.html"));
   });
 
 app.get("/api/tables", function(req, res) {
@@ -49,20 +49,16 @@ app.get("/", function(req, res) {
     return res.json(false);
   });
 
-app.post("/api/characters", function(req, res) {
+app.post("/api/new", function(req, res) {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
-    var newCharacter = req.body;
+    var newRes = req.body;
   
-    // Using a RegEx Pattern to remove spaces from newCharacter
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+    console.log(newRes);
   
-    console.log(newCharacter);
+    reserves.push(newRes);
   
-    characters.push(newCharacter);
-  
-    res.json(newCharacter);
+    res.json(newRes);
   });
 
 app.listen(PORT, function() {

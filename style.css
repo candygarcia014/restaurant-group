@@ -1,0 +1,10 @@
+body {
+    background-image: url("./images/backg.jpg");
+    background-size: cover;
+    position: relative;
+    font-style: italic;
+}
+
+.jumbotron {
+    background-color: rgba(222, 220, 81, 0.855);
+}

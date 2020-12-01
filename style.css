@@ -1,16 +1,16 @@
 body {
-    background-image: url("./images/backg.jpg");
+    background-image: url("./images/rest.jpg");
     background-size: cover;
     position: relative;
     font-style: italic;
 }
 
-.jumbotron, .tables {
+.jumbotron {
     background-color: rgba(222, 220, 81, 0.855);
 }
 
 .panel {
-    background-color: rgba(231, 65, 43, 0.855);
+    background-color: rgba(236, 105, 72, 0.738);
 }
 
 .form-group {

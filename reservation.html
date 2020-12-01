@@ -22,11 +22,19 @@
             <h2 class="text-center">Make your reservation</h2>
             <br>
 
+<<<<<<< HEAD
             <div class="text-center">
                 <a href="/tables"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
                 <a href="/"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
             </div>
         </div>
+=======
+			<div class="text-center">
+				<a href="tables.html"><button type="button" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button></a>
+				<a href="index.html"><button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-home"></span></button></a>
+			</div>
+		</div>
+>>>>>>> 6d2ecc1329181b704853baf6036247edd84df439
 
         <div class="row">
             <div class="col-lg-12">
@@ -79,5 +87,54 @@
     </div>
 
 </body>
+<<<<<<< HEAD
 
 </html>
+=======
+</html>
+
+<script type="text/javascript">
+
+	
+	$(".submit").on("click", function(){
+
+		// Here we grab the form elements
+		var newReservation = {
+			customerName: $('#reserve_name').val().trim(),
+			phoneNumber: $('#reserve_phone').val().trim(),
+			customerEmail: $('#reserve_email').val().trim(),
+			customerID: $('#reserve_uniqueID').val().trim()
+		};
+
+		console.log(newReservation);
+
+		
+		var currentURL = window.location.origin;
+
+	    $.post(currentURL + "/api/new", newReservation,
+	    function(data){
+
+	    	// If a table is available... tell user they are booked.
+	    	if(data == true){
+	    		alert("Yay! You are officially booked!")
+	    	}
+
+	    	// If a table is available... tell user they on the waiting list.
+	    	if(data == false){
+	    		alert("Sorry you are on the wait list")
+	    	}
+
+	    	// Clear the form when submitting
+    		$('#reserve_name').val("");
+			$('#reserve_phone').val("");
+			$('#reserve_email').val("");
+			$('#reserve_uniqueID').val("");
+
+	    });
+
+return false;
+
+});
+
+</script>
+>>>>>>> 6d2ecc1329181b704853baf6036247edd84df439
